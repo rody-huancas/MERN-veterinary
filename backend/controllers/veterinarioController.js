@@ -16,9 +16,11 @@ const registrar = async (req, res) => {
     }
 
     try {
-        // Guardar veterinario
+        // instancia de veterinario
         const veterinario = new Veterinario(req.body);
+        // Guardar veterinario
         const veterinarioGuardado = await veterinario.save();
+        // cuando se guarde, mostrar datos del registro
         res.send(veterinarioGuardado);
     } catch (error) {
         console.log(error);
