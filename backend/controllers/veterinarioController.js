@@ -30,6 +30,32 @@ const perfil = (req, res) => {
     res.send({ mdg: "mostrar perfil" });
 }
 
+const confirmar = async (req, res) => {
+    // obterner el token de la url
+    const { token } = req.params;
+    // buscar el usuario que tenga ese token
+    const usuarioConfirmar = await Veterinario.findOne({ token });
+    // si no existe el usuario con ese token
+    if (!usuarioConfirmar) {
+        const error = new Error("Token no válido.")
+        return res.status(404).json({ msg: error.message })
+    }
+
+    try {
+        // quitar el token
+        usuarioConfirmar.token = null;
+        // pasar a confirmado ese usuarip
+        usuarioConfirmar.confirmado = true;
+        // guardar el usuario
+        await usuarioConfirmar.save();
+
+        res.send({ msg: "Usuario confirmado correctamente." });
+    } catch (error) {
+        console.log(`Error: ${error.message}`);
+    }
+
+}
+
 export {
-    registrar, perfil
+    registrar, perfil, confirmar
 }
