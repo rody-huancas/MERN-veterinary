@@ -1,3 +1,4 @@
+import generarJWT from "../helpers/generarJWT.js";
 import Veterinario from "../models/Veterinario.js";
 
 // req -> mandar al servidor
@@ -55,9 +56,36 @@ const confirmar = async (req, res) => {
     } catch (error) {
         console.log(`Error: ${error.message}`);
     }
+}
 
+const autenticar = async (req, res) => {
+    const { email, password } = req.body;
+
+    // Comprobar si el usuario existe
+    const usuario = await Veterinario.findOne({ email });
+
+    // si no existe el usuario
+    if (!usuario) {
+        const error = new Error("El usuario no existe.")
+        return res.status(404).json({ msg: error.message })
+    }
+
+    // Comprobar si el usuario está confirmado
+    if (!usuario.confirmado) {
+        const error = new Error("Tu cuenta no ha sido confirmada.")
+        return res.status(404).json({ msg: error.message })
+    }
+
+    // Autenticar al usuario, el comprobarPassword está definido en el model
+    if (await usuario.comprobarPassword(password)) {
+        // autenticar
+        res.json({ token: generarJWT(usuario._id) })
+    } else {
+        const error = new Error("La contraseña es incorrecta.")
+        return res.status(404).json({ msg: error.message })
+    }
 }
 
 export {
-    registrar, perfil, confirmar
+    registrar, perfil, confirmar, autenticar
 }
