@@ -6,7 +6,7 @@ import {
     obtenerPaciente,
     obtenerPacientes,
 } from "../controllers/pacienteController.js";
-import checkAuth from "../middleware/autrhMiddleware.js";
+import checkAuth from "../middleware/authMiddleware.js";
 const router = express.Router();
 
 // cuando enviemos la peticion a la misma ruta
