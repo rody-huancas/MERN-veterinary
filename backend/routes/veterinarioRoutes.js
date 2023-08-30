@@ -1,6 +1,6 @@
 import express from 'express'
 import { autenticar, comprobarToken, confirmar, nuevoPassword, olvidePassword, perfil, registrar } from '../controllers/veterinarioController.js';
-import checkAuth from '../middleware/autrhMiddleware.js';
+import checkAuth from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
