@@ -11,7 +11,7 @@ const App = () => {
             <Route index element={<Login />} />
             <Route path="/registrar" element={<Registrar />} />
             <Route path="/olvide-password" element={<OlvidePassword />} />
-            <Route path="/confirmar-cuenta" element={<ConfirmarCuenta />} />
+            <Route path="/confirmar/:id" element={<ConfirmarCuenta />} />
           </Route>
         </Routes>
       </BrowserRouter>

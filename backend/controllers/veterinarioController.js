@@ -1,3 +1,4 @@
+import emailRegistro from "../helpers/emailRegistro.js";
 import generarId from "../helpers/generarId.js";
 import generarJWT from "../helpers/generarJWT.js";
 import Veterinario from "../models/Veterinario.js";
@@ -6,7 +7,7 @@ import Veterinario from "../models/Veterinario.js";
 // res -> respuesta del servidor
 
 const registrar = async (req, res) => {
-    const { nombre, email, password } = req.body;
+    const { nombre, email } = req.body;
 
     // Prevenir usuarios duplicados
     // findOne => buscar un usuario por los diferentes atributos que tenga
@@ -21,6 +22,9 @@ const registrar = async (req, res) => {
         const veterinario = new Veterinario(req.body);
         // Guardar veterinario
         const veterinarioGuardado = await veterinario.save();
+        // enviar el email
+        emailRegistro({ email, nombre, token: veterinarioGuardado.token })
+
         // cuando se guarde, mostrar datos del registro
         res.send(veterinarioGuardado);
     } catch (error) {
