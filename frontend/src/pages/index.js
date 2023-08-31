@@ -1,4 +1,5 @@
 export * from "./ConfirmarCuenta"
 export * from "./Login"
 export * from "./OlvidePassword"
+export * from "./NuevoPassword"
 export * from "./Registrar"
