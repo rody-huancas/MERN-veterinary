@@ -1,7 +1,65 @@
+import { Link } from "react-router-dom";
+
 export const Login = () => {
   return (
     <>
-      <div>Login</div>
+      <div>
+        <h1 className="text-indigo-600 font-black text-6xl">
+          Inicia Sesión y Administra tus{" "}
+          <span className="text-black">Pacientes</span>
+        </h1>
+      </div>
+      <div className="mt-20 md:mt-5 shadow-lg px-5 py-10 rounded-xl bg-white">
+        <form>
+          <div className="my-5">
+            <label
+              htmlFor=""
+              className="uppercase text-gray-600 block text-xl font-bold"
+            >
+              Correo Electrónico
+            </label>
+            <input
+              type="email"
+              className="border w-full p-3 mt-3 bg-gray-50 rounded-xl"
+              placeholder="Ingrese su correo electrónico"
+            />
+          </div>
+          <div className="my-5">
+            <label
+              htmlFor=""
+              className="uppercase text-gray-600 block text-xl font-bold"
+            >
+              Contraseña
+            </label>
+            <input
+              type="password"
+              className="border w-full p-3 mt-3 bg-gray-50 rounded-xl"
+              placeholder="Ingrese su contraseña"
+            />
+          </div>
+
+          <input
+            type="submit"
+            value="Iniciar Sesión"
+            className="bg-indigo-700 w-full py-3 px-10 rounded-xl text-white uppercase font-bold mt-5 transition-colors hover:cursor-pointer hover:bg-indigo-800 md:w-auto"
+          />
+        </form>
+
+        <nav className="mt-10 lg:flex lg:justify-between">
+          <Link
+            to="/registrar"
+            className="block text-center my-5 text-gray-500"
+          >
+            ¿No tienes una cuenta? Regístrate
+          </Link>
+          <Link
+            to="/olvide-password"
+            className="block text-center my-5 text-gray-500"
+          >
+            Olvidé mi contraseña
+          </Link>
+        </nav>
+      </div>
     </>
   );
 };
