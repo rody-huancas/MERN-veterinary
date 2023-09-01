@@ -36,9 +36,7 @@ const perfil = (req, res) => {
     // estraer veterinario que está guuardado en la sesion
     const { veterinario } = req;
 
-    res.send({
-        perfil: veterinario,
-    });
+    res.json(veterinario);
 };
 
 const confirmar = async (req, res) => {
