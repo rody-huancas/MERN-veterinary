@@ -85,7 +85,12 @@ const autenticar = async (req, res) => {
     // Autenticar al usuario, el comprobarPassword está definido en el model
     if (await usuario.comprobarPassword(password)) {
         // autenticar
-        res.json({ token: generarJWT(usuario._id) });
+        res.json({
+            _id: usuario._id,
+            nombre: usuario.nombre,
+            email: usuario.email,
+            token: generarJWT(usuario._id)
+        });
     } else {
         const error = new Error("La contraseña es incorrecta.");
         return res.status(404).json({ msg: error.message });
