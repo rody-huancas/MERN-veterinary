@@ -34,20 +34,31 @@
    npm run dev
    ```
 5. Dirigete a la carpeta del proyecto descargado, y entra al frontend
-   bash
+   ```bash
    cd frontend
+   ```
 6. Ubicate dentro de la carpeta e instala las dependencias
-   bash
+   ```bash
    npm install
+   ```
 7. Ejecuta el proyecto
-   bash
+   ```bash
    npm run dev
-       ```
+   ```
 
 #### NOTA
 
 - Crea un .env en el directorio backend
 - Agrega una variable (MONGO_URI), la cual contenga tu url de la la conexion a la base de datos de mongoDB
 - Agrega una llave secreta (JWT_SECRET), para usar JWT
+- Genera las credenciales para envio de emails (mailtrap):
+  - EMAIL_USER
+  - EMAIL_PASS
+  - EMAIL_HOST
+  - EMAIL_PORT
+- Una variable FRONTEND_URL con la url del frontend
+- En la carpeta de Fronted, crear: VITE_BACKEND_URL, la cual contiene la url del backend
 
 ###### -Rody Huancas
+
+JWT_SECRET=secretito
