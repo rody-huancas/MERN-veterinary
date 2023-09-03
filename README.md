@@ -34,15 +34,17 @@
    npm run dev
    ```
 5. Dirigete a la carpeta del proyecto descargado, y entra al frontend
-   bash
+   ```bash
    cd frontend
+   ```
 6. Ubicate dentro de la carpeta e instala las dependencias
-   bash
+   ```bash
    npm install
+   ```
 7. Ejecuta el proyecto
-   bash
+   ```bash
    npm run dev
-       ```
+   ```
 
 #### NOTA
 
