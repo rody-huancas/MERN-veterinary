@@ -1,3 +1,7 @@
 export * from "./Alerta"
 export * from "./Header"
 export * from "./Footer"
+export * from "./Formulario"
+export * from "./ListadoPacientes"
+export * from "./Paciente"
+export * from "./AdminNav"
