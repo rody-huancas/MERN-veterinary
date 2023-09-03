@@ -60,5 +60,3 @@
 - En la carpeta de Fronted, crear: VITE_BACKEND_URL, la cual contiene la url del backend
 
 ###### -Rody Huancas
-
-JWT_SECRET=secretito
